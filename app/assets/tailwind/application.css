@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-background: #f3f4f6;
+    --color-primary: #3b82f6;
+    --color-secondary: #facc15;
+    --color-text: #344767;
+  }
+  .dark {
+    --color-background: #1e3a8a;
+    --color-primary: #1e3a8a;
+    --color-secondary: #eab308;
+    --color-text: #ffffff;
+  }
+  
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-text);
+  }
+
+  header {
+    background-color: var(--color-background);
+  }
+
+  footer {
+    background-color: var(--color-background);
+  }
+
+  button {
+    background-color: var(--color-primary);
+    color: white;
+  }  
+}

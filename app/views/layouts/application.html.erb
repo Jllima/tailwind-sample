@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="">
+  <head>
+    <title><%= content_for(:title) || "Tailwind Sample" %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= yield :head %>
+    <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
+    <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
+    <link rel="icon" href="/icon.png" type="image/png">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/icon.png">
+    <%# Includes all stylesheet files in app/assets/stylesheets %>
+    <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+  <body class="h-screen flex flex-col">
+    <div class="flex flex-1 mx-6 mt-4">
+      <!-- Barra Lateral -->
+      <aside class="bg-white shadow h-[96%] w-1/6 min-w-[250px] p-4 mt-4 ml-4 rounded-lg hidden lg:block">
+        <nav>
+          <ul>
+            <li><a href="#" class="block py-2 px-4 hover:bg-gray-100">Dashboard</a></li>
+            <li><a href="#" class="block py-2 px-4 hover:bg-gray-100">Configurações</a></li>
+            <li><a href="#" class="block py-2 px-4 hover:bg-gray-100">Sair</a></li>
+          </ul>
+        </nav>
+      </aside>
+      <!-- Conteúdo -->
+      <div class="flex-1 flex flex-col mx-4">
+        <!-- Header -->
+        <header class="p-4 mt-4">
+          <h1 class="text-xl font-bold">Minha Aplicação</h1>
+          <!--
+          <button id="darkModeToggle" class="bg-blue-500 text-white px-4 py-2 rounded">
+            Alternar Tema
+          </button>
+          -->
+        </header>
+        <!-- Conteúdo Central -->
+        <main class="flex-1 bg-white p-6 mt-4 rounded-lg shadow">
+          <h2 class="text-2xl font-bold mb-4">Bem-vindo ao Sistema</h2>
+          <%= yield %>
+        </main>
+        <!-- Footer -->
+        <footer class="text-center p-4 mt-4">
+          <p>&copy; 2025 Minha Aplicação. Todos os direitos reservados.</p>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>
