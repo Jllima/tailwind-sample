@@ -21,7 +21,13 @@
     <div class="flex flex-1 mx-6 mt-4">
       <!-- Barra Lateral -->
       <aside class="bg-white shadow h-[96%] w-1/6 min-w-[250px] p-4 mt-4 ml-4 rounded-lg hidden lg:block">
-        <nav>
+        <div class="flex items-center justify-center space-x-2 mb-4">
+          <%= image_tag "logo.png", alt: "Logo Sistech", class: "w-15 h-15" %>
+          <h1 class="text-lg font-bold">SisTech</h1>
+        </div>
+
+        <hr/>
+        <nav class="mt-4">
           <ul>
             <li><a href="#" class="block py-2 px-4 hover:bg-gray-100">Dashboard</a></li>
             <li><a href="#" class="block py-2 px-4 hover:bg-gray-100">Configurações</a></li>
