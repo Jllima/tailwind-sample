@@ -38,5 +38,9 @@
     height: 1px; /* Espessura da linha */
     background: linear-gradient(to right, transparent, #d1d5db, transparent);
   }
-  
+
+  .active {
+    background-color: #f3f4f6; /* Mesma cor do hover */
+  }
+
 }
