@@ -23,14 +23,14 @@ document.addEventListener("DOMContentLoaded", () => {
 // fuction active links
 document.addEventListener("turbo:load", () => {
   const links = document.querySelectorAll("nav ul li a");
-  const submenuLinks = document.querySelectorAll("#submenu a");
-  const cadastroToggle = document.getElementById("submenu-toggle");
+  const submenuLinks = document.querySelectorAll(".submenu a");
+  const submenuToggles = document.querySelectorAll(".submenu-toggle");
 
+  // Remove a classe 'active' de todos os links principais
   links.forEach(link => {
-    // Remove a classe 'active' de todos os links
     link.parentNode.classList.remove("active");
 
-    // Verifica se o href do link corresponde à URL atual
+    // Se o link corresponder à URL atual, ativa o item principal
     if (link.href === window.location.href) {
       link.parentNode.classList.add("active");
     }
@@ -39,8 +39,14 @@ document.addEventListener("turbo:load", () => {
   // Verifica se algum link do submenu está ativo
   submenuLinks.forEach(submenuLink => {
     if (submenuLink.href === window.location.href) {
-      // Adiciona a classe 'active' ao item principal "Cadastro"
-      cadastroToggle.classList.add("active");
+      // Obtém o elemento pai que contém o submenu
+      const parentSubmenu = submenuLink.closest(".submenu");
+      const submenuToggle = parentSubmenu ? parentSubmenu.previousElementSibling : null;
+
+      // Adiciona 'active' à opção principal do submenu
+      if (submenuToggle && submenuToggle.classList.contains("submenu-toggle")) {
+        submenuToggle.classList.add("active");
+      }
     }
   });
 });
@@ -52,26 +58,35 @@ mesmo sem recarregamento completo da página.
 */
 // submenu navbar
 document.addEventListener("turbo:load", () => {
-  const submenuToggle = document.getElementById("submenu-toggle");
-  const submenu = document.getElementById("submenu");
-  const links = document.querySelectorAll("nav ul li a");
+  const submenuToggles = document.querySelectorAll(".submenu-toggle");
+  const submenuLinks = document.querySelectorAll(".submenu a");
 
-  if (submenuToggle && submenu) {
-    submenuToggle.addEventListener("click", (event) => {
-      // Impede a propagação para outros elementos
-      event.stopPropagation();
-      submenu.classList.toggle("hidden");
+  submenuToggles.forEach(toggle => {
+    toggle.addEventListener("click", (event) => {
+      event.stopPropagation(); // Evita propagação do clique
+      const submenu = toggle.nextElementSibling;
+      
+      if (submenu && submenu.classList.contains("submenu")) {
+        submenu.classList.toggle("hidden");
+        submenu.classList.toggle("visible");
+      }
     });
+  });
 
-    // Fecha o submenu se clicar fora dele
-    document.addEventListener("click", () => {
-      submenu.classList.add("hidden");
+  // Fecha o submenu ao clicar fora dele
+  document.addEventListener("click", (event) => {
+    submenuToggles.forEach(toggle => {
+      const submenu = toggle.nextElementSibling;
+      if (submenu && submenu.classList.contains("submenu") && !toggle.contains(event.target) && !submenu.contains(event.target)) {
+        submenu.classList.add("hidden");
+        submenu.classList.remove("visible");
+      }
     });
-  }
+  });
 
-  links.forEach(link => {
+  // Impede que os links do submenu interfiram no comportamento do menu
+  submenuLinks.forEach(link => {
     link.addEventListener("click", (event) => {
-      // Impede que o clique nos links interfira no submenu
       event.stopPropagation();
     });
   });

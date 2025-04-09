@@ -4,7 +4,7 @@
   :root {
     --color-background: #f3f4f6;
     --color-primary: #3b82f6;
-    --color-secondary: #facc15;
+    --color-secondary: #ffffff;
     --color-text: #344767;
   }
   .dark {
@@ -40,7 +40,10 @@
   }
 
   .active {
-    background-color: #f3f4f6; /* Mesma cor do hover */
+    background-color: var(--color-background); /* Mesma cor do hover */
   }
 
+  .bg-sys {
+    background-color: var(--color-secondary);
+  }
 }
