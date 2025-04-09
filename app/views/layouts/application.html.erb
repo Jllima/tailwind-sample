@@ -53,7 +53,7 @@
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 0 1-2.25 2.25M16.5 7.5V18a2.25 2.25 0 0 0 2.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 0 0 2.25 2.25h13.5M6 7.5h3v3H6v-3Z" />
                 </svg>
-                <span class="text-gray-700">Cadastro</span>
+                <span class="text-gray-700">Cadastros</span>
               </div>
             </li>
             <ul class="bg-sys submenu hidden shadow-md rounded-lg transition-transform duration-300 ease-in-out py-2">
@@ -65,8 +65,14 @@
       <!-- Conteúdo -->
       <div class="flex-1 flex flex-col mx-4">
         <!-- Header -->
-        <header class="p-4 mt-4">
-          <h1 class="text-xl font-bold">Minha Aplicação</h1>
+        <header class="p-2 mt-4">
+          <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
+            <li class="text-sm leading-normal">
+              <a class="opacity-50" href="javascript:;">Pages</a>
+            </li>
+            <li class="text-sm pl-2 capitalize leading-normal before:float-left before:pr-2 before:content-['/']" aria-current="page"><%= content_for?(:breadcrumb) ? content_for(:breadcrumb) : "SisTech" %></li>
+          </ol>
+          <h1 class="text-lg font-bold"><%= content_for?(:title) ? content_for(:title) : "SisTech" %></h1>
           <!--
           <button id="darkModeToggle" class="bg-blue-500 text-white px-4 py-2 rounded">
             Alternar Tema
@@ -74,8 +80,7 @@
           -->
         </header>
         <!-- Conteúdo Central -->
-        <main class="flex-1 p-4 mt-4">
-          <h2 class="text-2xl font-bold mb-4"><%= content_for?(:title) ? yield(:title) : "Título Padrão" %></h2>
+        <main class="flex-1 p-2 mt-4">
           <%= yield %>
         </main>
         <!-- Footer -->
