@@ -46,4 +46,9 @@
   .bg-sys {
     background-color: var(--color-secondary);
   }
+
+  tbody tr {
+    transition: background-color 0.3s ease-in-out;
+  }
+
 }

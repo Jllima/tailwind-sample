@@ -10,20 +10,55 @@
     <div class="mt-2">[Conteúdo do Gráfico]</div>
   </div>
 </div>
-<div class="w-full overflow-auto bg-white shadow rounded-lg p-4 mt-4">
-  <table class="table-auto border-collapse w-full text-left">
+<div class="bg-white shadow-md rounded-2xl overflow-hidden p-4 mt-4">
+  <!-- Cabeçalho com título e campo de pesquisa -->
+  <div class="flex justify-between items-center p-4 ">
+    <h2 class="text-lg font-semibold text-gray-700">Recent Orders</h2>
+    <div class="relative">
+      <input
+        type="text"
+        placeholder="Search..."
+        class="pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-5 w-5 text-gray-500 absolute left-3 top-2.5"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 1 1-14 0 7 7 0 0 1 14 0z" />
+      </svg>
+    </div>
+  </div>
+  <!-- Tabela -->
+  <table class="table-auto w-full border-collapse text-left ">
     <thead>
       <tr>
-        <th class="border-b border-gray-300 px-4 py-3 text-slate-500 opacity-80 text-sm">Cabeçalho 1</th>
-        <th class="border-b border-gray-300 px-4 py-3 text-slate-500 opacity-80 text-sm">Cabeçalho 2</th>
-        <th class="border-b border-gray-300 px-4 py-3 text-slate-500 opacity-80 text-sm">Cabeçalho 3</th>
+        <th class="border-b border-gray-300 px-4 py-3 text-slate-500 opacity-80 text-sm">Product</th>
+        <th class="border-b border-gray-300 px-4 py-3 text-slate-500 opacity-80 text-sm">Category</th>
+        <th class="border-b border-gray-300 px-4 py-3 text-slate-500 opacity-80 text-sm">CR</th>
+        <th class="border-b border-gray-300 px-4 py-3 text-slate-500 opacity-80 text-sm">Value</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td class="border-b border-gray-300 p-3">Dado 1</td>
-        <td class="border-b border-gray-300 p-3">Dado 2</td>
-        <td class="border-b border-gray-300 p-3">Dado 3</td>
+      <tr class="hover:bg-gray-50">
+        <td class="border-b border-gray-100 px-4 py-4 text-gray-700">TailGrids</td>
+        <td class="border-b border-gray-100 px-4 py-4 text-gray-700">UI Kit</td>
+        <td class="border-b border-gray-100 px-4 py-4 text-gray-700">Dashboard</td>
+        <td class="border-b border-gray-100 px-4 py-4 text-gray-700">$12,499</td>
+      </tr>
+      <tr class="hover:bg-gray-50">
+        <td class="border-b border-gray-100 px-4 py-4 text-gray-700">GrayGrids</td>
+        <td class="border-b border-gray-100 px-4 py-4 text-gray-700">Templates</td>
+        <td class="border-b border-gray-100 px-4 py-4 text-gray-700">Dashboard</td>
+        <td class="border-b border-gray-100 px-4 py-4 text-gray-700">$5,498</td>
+      </tr>
+      <tr class="hover:bg-gray-50">
+        <td class="border-b border-gray-100 px-4 py-4 text-gray-700">Uideck</td>
+        <td class="border-b border-gray-100 px-4 py-4 text-gray-700">SaaS</td>
+        <td class="border-b border-gray-100 px-4 py-4 text-gray-700">Dashboard</td>
+        <td class="border-b border-gray-100 px-4 py-4 text-gray-700">$4,521</td>
       </tr>
     </tbody>
   </table>
