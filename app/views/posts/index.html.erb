@@ -1,5 +1,47 @@
 <% content_for :title, "Posts" %>
 <% content_for :breadcrumb, "Posts" %>
+
+
+<div class="bg-white shadow-md rounded-2xl overflow-hidden p-4 mt-2">
+  <!-- Cabeçalho com título e campo de pesquisa -->
+  <div class="flex justify-between items-center p-4 ">
+    <h2 class="text-lg font-semibold text-gray-700">Posts</h2>
+    <div class="relative">
+      <input
+        type="text"
+        placeholder="Search..."
+        class="pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-5 w-5 text-gray-500 absolute left-3 top-2.5"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 1 1-14 0 7 7 0 0 1 14 0z" />
+      </svg>
+    </div>
+  </div>
+  <!-- Tabela -->
+  <table class="table-auto w-full border-collapse text-left ">
+    <thead>
+      <tr>
+        <th class="border-b border-gray-300 px-4 py-3 text-slate-500 opacity-80 text-sm">Título</th>
+        <th class="border-b border-gray-300 px-4 py-3 text-slate-500 opacity-80 text-sm">Desc</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @posts.each do |post| %>
+        <tr class="hover:bg-gray-50">
+          <td class="border-b border-gray-100 px-4 py-4 text-gray-700"><%= post.title %></td>
+          <td class="border-b border-gray-100 px-4 py-4 text-gray-700"><%= post.desc %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
 <div class="w-full">
   <% if notice.present? %>
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-md inline-block" id="notice"><%= notice %></p>
